@@ -1,0 +1,12 @@
+# システム構成情報をMySQLに登録する
+
+
+## InfluxDB
+python /mydata_server/LIB/setinfluxdb.py --id InfluxDB --name "My InfluxDB" --token "jG99-jU4YqMZixUN3IGoBCdQ7iAbekCXPkaM2SEvHXt0lXEQKMDkJppaiXYn66bnsOuaEDZ323k1p3EYIHw-zg==" --address influxdb
+
+## #thereum
+python /mydata_server/LIB/setethereum.py --id Ethereum --name "Etherem private net" --account 0x92782155623f7ac1bcdd1fec7626857388d259a6 --password dataprovider --privatekey 453f42a98d513af98a860345a97a8ab99b268e422f9ee0b5b0c8b0347bd69124 --address ethereum
+
+## MinIO
+python /mydata_server/LIB/setminio.py --id MinIO --name "Storage(MinIO)" --access_key_id minioadmin  --secret_access_key minioadmin --address minio
+

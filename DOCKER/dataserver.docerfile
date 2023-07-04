@@ -1,0 +1,14 @@
+FROM python:3.7
+RUN pip install fastapi uvicorn influxdb-client SQLAlchemy==1.4.39 mysqlclient web3 boto3 python-multipart
+
+COPY . /mydata_server/
+COPY ./LIB/config.json.cont /mydata_server/LIB/config.json
+COPY ./SETUP/config.sh.cont /mydata_server/config.sh
+
+ENV PYTHONPATH="/mydata_server/LIB:/mydata_server/APP:$PYTHONPATH" \
+    MYDATASERVER_APP_CONFIG_PATH=/mydata_server/APP \
+    MYDATASERVER_LIB_CONFIG_PATH=/mydata_server/LIB \
+    MYDATASERVER_TOP=/mydata_server/
+
+CMD ["python", "/mydata_server/mydata_server.py"]
+
